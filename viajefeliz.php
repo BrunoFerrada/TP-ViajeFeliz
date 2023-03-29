@@ -24,9 +24,9 @@
             return $this->destino;
         }
 
-        public function ponerDestino() {
+        public function ponerDestino($destino) {
             $this->destino = $destino;
-        }
+          }
 
 
     }
