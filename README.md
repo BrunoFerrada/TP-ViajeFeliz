@@ -1,5 +1,8 @@
 # TP-ViajeFeliz
 
+carrera: tecnicatura universitaria en desarrollo web
+<br/>
 estudiante: Ferrada Bruno
 <br/>
-carrera: tecnicatura universitaria en desarrollo web
+legajo: FAI-3307
+
