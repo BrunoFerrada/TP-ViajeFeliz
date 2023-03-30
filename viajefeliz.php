@@ -85,17 +85,17 @@
         echo "Código: " . $this->codigo . "\n";
         echo "Destino: " . $this->destino . "\n";
         echo "Cantidad máxima de pasajeros: " . $this->cantMaxPasajeros . "\n";
-        echo "Pasajeros: <\n>";
+        echo "Pasajeros: \n";
         $pasajeros = $this->pasajerosViaje;
-        if(empty($pasajeros)) {
-            echo "No hay pasajeros en el viaje<\n>";
+        if(empty($pasajeros) == true) {
+            echo "No hay pasajeros en el viaje\n";
           } else {
             echo "\nPasajeros:\n";
             foreach($pasajeros as $index => $pasajero) {
-              echo "Pasajero " . ($index + 1) . ":<\n>";
-              echo "Nombre: " . $pasajero['nombre'] . "<\n>";
-              echo "Apellido: " . $pasajero['apellido'] . "<\n>";
-              echo "Número de documento: " . $pasajero['numeroDocumento'] . "<\n><\n>";
+              echo "Pasajero " . ($index + 1) . ":\n";
+              echo "Nombre: " . $pasajero['nombre'] . "\n";
+              echo "Apellido: " . $pasajero['apellido'] . "\n";
+              echo "Número de documento: " . $pasajero['numeroDocumento'] . "\n\n";
             }
           }
       }
