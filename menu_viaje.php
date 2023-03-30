@@ -21,8 +21,25 @@ while ($opcion != 4) {
             echo "Ingrese la cantidad máxima de pasajeros: ";
             $cantMaxPasajeros = trim(fgets(STDIN));
             $viaje = new Viaje($codigo, $destino, $cantMaxPasajeros);
+            //agregamos pasajeros al viaje
+            echo "Ingrese la cantidad de pasajeros: ";
+            $cantPasajeros = trim(fgets(STDIN));
+            if ($cantPasajeros > $cantMaxPasajeros) {
+                echo "Los pasajeros superan la capacidad máxima del viaje.\n";
+                break;
+            } else {
+                for ($i = 0; $i < $cantPasajeros; $i++) {
+                    echo "Ingrese el nombre del pasajero " . $i . ": ";
+                    $nombre = trim(fgets(STDIN));
+                    echo "Ingrese el apellido del pasajero " . $i . ": ";
+                    $apellido =trim(fgets(STDIN));
+                    echo "Ingrese el número de documento del pasajero " . $i . ": ";
+                    $numeroDocumento = trim(fgets(STDIN));
+                    $viaje->agregarPasajeros($nombre, $apellido, $numeroDocumento);
+            }
             echo "¡Información del viaje cargada exitosamente!\n";
             break;
+        }
         case 2:
             $opcionModificacion = 0;
             echo "Menú de modificación:\n";
@@ -55,7 +72,7 @@ while ($opcion != 4) {
                     echo "¡Cantidad máxima de pasajeros modificada exitosamente!\n";
                     break;
                 case 4:
-                    echo "Ingrese le nombre del pasajero: ";
+                    echo "Ingrese el nombre del pasajero: ";
                     $nombre = trim(fgets(STDIN));
                     echo "Ingrese el apellido: ";
                     $apellido = trim(fgets(STDIN));
@@ -70,8 +87,39 @@ while ($opcion != 4) {
                     echo "¡Pasajero agregado exitosamente!\n";
                     break;
                 case 5:
-                    echo "";
+                    echo "Ingrese el indice del pasajero que desee modificar: ";
+                    $indice = trim(fgets(STDIN));
+                    echo "Ingrese el nuevo nombre: ";
+                    $nombre = trim(fgets(STDIN));
+                    echo "Ingrese el nuevo apellido: ";
+                    $apellido = trim(fgets(STDIN));
+                    echo "Ingrese el nuevo número de documento: ";
+                    $numeroDocumento = trim(fgets(STDIN));
+                    $viaje->modificarPasajerox($indice, $nombre, $apellido, $numeroDocumento);
+                    break;
+                case 6:
+                    echo "Ingrese el número de documento del pasajero que quiere eliminar: ";
+                    $numeroDocumento = trim(fgets(STDIN));
+                    $viaje->quitarPasajeros($numeroDocumento);
+                    echo "¡Pasajero quitado con exito!\n";
+                    break;
+                case 7:
+                    echo "Regresando al menú principal...\n";
+                    break; 
+                default:
+                    echo "Opción invalida\n";
+                    break; 
+                break;           
             }
-
+        case 3:
+            $viaje->mostrarDatos();
+            break;
+        case 4:
+            echo "Saliendo...\n";
+            break;
+        default:
+            echo "Opción inválida\n";
+            break;
+        break;
     }
 }

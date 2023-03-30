@@ -48,7 +48,7 @@
             array_push($this->pasajerosViaje, $pasajeros);
        }
 
-       public function modificarPasajeros($numeroDocumento, $pasajeros) {
+       /*public function modificarPasajeros($numeroDocumento, $pasajeros) {
         foreach ($this->pasajerosViaje as $key => $value) {
             if ($value['numero de documento'] == $numeroDocumento) {
                 $this->pasajerosViaje[$key]['nombre'] = $pasajeros['nombre'];
@@ -56,7 +56,7 @@
                 break;       
             }
         }
-       }
+       }*/
 
        public function quitarPasajeros($numeroDocumento) {
         foreach ($this->pasajerosViaje as $key => $value) {
@@ -80,6 +80,7 @@
           return false;
         }
       }
+
       public function mostrarDatos() {
         echo "Código: " . $this->codigo . "\n";
         echo "Destino: " . $this->destino . "\n";
