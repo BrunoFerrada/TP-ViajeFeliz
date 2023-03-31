@@ -20,10 +20,9 @@ while ($opcion != 4) {
             $destino = trim(fgets(STDIN));
             echo "Ingrese la cantidad máxima de pasajeros: ";
             $cantMaxPasajeros = trim(fgets(STDIN));
-            $viaje = new Viaje($codigo, $destino, $cantMaxPasajeros);
-            //agregamos pasajeros al viaje
             echo "Ingrese la cantidad de pasajeros: ";
             $cantPasajeros = trim(fgets(STDIN));
+            $viaje = new Viaje($codigo, $destino, $cantMaxPasajeros, $cantPasajeros);
             if ($cantPasajeros > $cantMaxPasajeros) {
                 echo "Los pasajeros superan la capacidad máxima del viaje.\n";
                 break;
