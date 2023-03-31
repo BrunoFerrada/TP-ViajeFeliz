@@ -69,7 +69,7 @@
         }
        }
 
-       public function modificarPasajerox($indice, $nombre, $apellido, $numeroDocumento) {
+       public function modificarPasajeros($indice, $nombre, $apellido, $numeroDocumento) {
         if($indice >= 0 && $indice < count($this->pasajerosViaje)) {
           $pasajero = [
             'nombre' => $nombre,
