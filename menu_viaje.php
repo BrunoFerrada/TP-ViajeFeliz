@@ -34,7 +34,7 @@ while ($opcion != 4) {
                     $apellido =trim(fgets(STDIN));
                     echo "Ingrese el número de documento del pasajero " . $i . ": ";
                     $numeroDocumento = trim(fgets(STDIN));
-                    $viaje->agregarPasajeros($nombre, $apellido, $numeroDocumento);
+                    $viaje->agregarPasajero($nombre, $apellido, $numeroDocumento);
             }
             echo "¡Información del viaje cargada exitosamente!\n";
             break;
@@ -83,7 +83,7 @@ while ($opcion != 4) {
                             'apellido' => $apellido,
                             'numero de documento' => $numeroDocumento
                         );
-                        $viaje->agregarPasajeros($pasajeros);
+                        $viaje->agregarPasajero($nombre, $apellido, $numeroDocumento);
                         echo "¡Pasajero agregado exitosamente!\n";
                         break;
                     case 5:
@@ -110,6 +110,7 @@ while ($opcion != 4) {
                         echo "Opción invalida\n";
                         break; 
                     break;
+                break;
                 }          
             } else {
                 echo "Por favor, ingrese los datos del viaje antes de intentar modificarlos.\n";

@@ -46,19 +46,13 @@
             $this->pasajerosViaje = $pasajerosViaje;
         }
 
-       public function agregarPasajeros($pasajeros) {
-            array_push($this->pasajerosViaje, $pasajeros);
-       }
-
-       /*public function modificarPasajeros($numeroDocumento, $pasajeros) {
-        foreach ($this->pasajerosViaje as $key => $value) {
-            if ($value['numero de documento'] == $numeroDocumento) {
-                $this->pasajerosViaje[$key]['nombre'] = $pasajeros['nombre'];
-                $this->pasajerosViaje[$key]['apellido'] = $pasajeros['apellido'];
-                break;       
-            }
-        }
-       }*/
+       public function agregarPasajero($nombre, $apellido, $numeroDocumento) {
+        $this->pasajerosViaje[] = array(
+          "nombre" => $nombre,
+          "apellido" => $apellido,
+          "numeroDocumento" => $numeroDocumento
+        );
+      }
 
        public function quitarPasajeros($numeroDocumento) {
         foreach ($this->pasajerosViaje as $key => $value) {
@@ -84,20 +78,20 @@
       }
 
       public function mostrarDatos() {
-        echo "Código: " . $this->codigo . "\n";
+        echo "Código de viaje: " . $this->codigo . "\n";
         echo "Destino: " . $this->destino . "\n";
         echo "Cantidad máxima de pasajeros: " . $this->cantMaxPasajeros . "\n";
         $pasajeros = $this->pasajerosViaje;
         if(empty($pasajeros) == true) {
-            echo "No hay pasajeros en el viaje\n";
-          } else {
-            echo "Pasajeros: " . $this->cantPasajeros . "\n";
+            echo "No hay pasajeros en el viaje\n\n";
+        } else {
+            echo "Pasajeros actuales: " . $this->cantPasajeros . "\n\n";
             foreach($pasajeros as $index => $pasajero) {
               echo "Pasajero " . ($index + 1) . ":\n";
               echo "Nombre: " . $pasajero["nombre"] . "\n";
               echo "Apellido: " . $pasajero["apellido"] . "\n";
               echo "Número de documento: " . $pasajero["numeroDocumento"] . "\n\n";
-            }
           }
+        }
       }
     }
