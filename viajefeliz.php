@@ -77,7 +77,7 @@
         }
       }
 
-      public function mostrarDatos() {
+      /*public function mostrarDatos() {
         echo "Código de viaje: " . $this->codigo . "\n";
         echo "Destino: " . $this->destino . "\n";
         echo "Cantidad máxima de pasajeros: " . $this->cantMaxPasajeros . "\n";
@@ -93,5 +93,19 @@
               echo "Número de documento: " . $pasajero["numeroDocumento"] . "\n\n";
           }
         }
+      }*/
+
+      public function __toString()
+      {
+        return "Codigo de viaje: " . $this->codigo . "\n" . "Destino del viaje: " . $this->destino . "\n" . "Cantidad máxima de pasajeros: " . $this->cantMaxPasajeros . "\n";
+      }
+    
+      public function mostrarPasajeros() {
+        $pasajeros = $this->pasajerosViaje;
+        $cadena = "   PASAJEROS \n";
+        foreach($pasajeros as $index => $pasajero) {
+          $cadena .= "Pasajero " . ($index + 1) . "\n" . "Nombre: " . $pasajero['nombre'] . "\n" . "Apellido: " . $pasajero['apellido'] . "\n" . "Número de Documento: " . $pasajero['numeroDocumento'] . "\n \n";
+        }
+        return $cadena;
       }
     }
