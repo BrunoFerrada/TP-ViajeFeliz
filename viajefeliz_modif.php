@@ -50,7 +50,7 @@ include_once 'responsableV.php';
         }
 
        public function agregarPasajero($nombre, $apellido, $nroDocumento, $telefono) {
-        $pasajero = new PasajeroV($nombre, $apellido, $nroDocumento, $telefono);
+        $pasajero = new Pasajero($nombre, $apellido, $nroDocumento, $telefono);
         $this->pasajerosViaje[] = $pasajero;
       }
 
@@ -103,9 +103,9 @@ include_once 'responsableV.php';
     
       public function mostrarPasajeros() {
         $pasajeros = $this->pasajerosViaje;
-        $cadena = "   PASAJEROS \n";
+        $cadena = "---PASAJEROS--- \n";
         foreach($pasajeros as $index => $pasajero) {
-          $cadena .= "Pasajero " . ($index + 1) . "\n" . "Nombre: " . $pasajero['nombre'] . "\n" . "Apellido: " . $pasajero['apellido'] . "\n" . "Número de Documento: " . $pasajero['numeroDocumento'] . "\n" . "Número de telefono: " . $pasajero['telefono'] . "\n \n";
+          $cadena .= "Pasajero " . ($index + 1) . "\n" . "Nombre: " . $pasajero->getNombre() . "\n" . "Apellido: " . $pasajero->getApellido() . "\n" . "Número de Documento: " . $pasajero->getNroDocumento() . "\n" . "Número de telefono: " . $pasajero->getTelefono() . "\n \n";
         }
         return $cadena;
       }

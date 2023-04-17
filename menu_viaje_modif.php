@@ -126,7 +126,8 @@ while ($opcion != 4) {
             break;
         case 3:
             if(isset($viaje)) {
-                echo $viaje;
+                echo "---VIAJE--- \n";
+                echo $viaje . "\n";
                 $verPasajeros = $viaje->mostrarPasajeros();
                 echo $verPasajeros;
             } else {

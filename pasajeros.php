@@ -1,6 +1,6 @@
 <?php
 
-class PasajeroV {
+class Pasajero {
     private $nombre;
     private $apellido;
     private $nroDocumento;
@@ -45,7 +45,7 @@ class PasajeroV {
         $this->telefono = $telefono;
     }
 
-    public function __toString() {
+    /*public function __toString() {
         echo "Nombre: " . $this->nombre . "\n" . "Apellido: " . $this->apellido . "\n" . "Número de documento: " . $this->nroDocumento . "\n" . "Telefono: " . $this->telefono . "\n\n";
-    }
+    }*/
 }
