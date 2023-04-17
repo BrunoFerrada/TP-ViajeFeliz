@@ -50,8 +50,8 @@ include_once 'responsableV.php';
         }
 
        public function agregarPasajero($nombre, $apellido, $nroDocumento, $telefono) {
-        new Pasajero($nombre, $apellido, $nroDocumento, $telefono);
-        array_push($pasajerosViaje);
+        $pasajero = new Pasajero($nombre, $apellido, $nroDocumento, $telefono);
+        $this->pasajerosViaje[] = $pasajero;
       }
 
        public function quitarPasajeros($numeroDocumento) {
@@ -63,12 +63,13 @@ include_once 'responsableV.php';
         }
        }
 
-       public function modificarPasajeros($indice, $nombre, $apellido, $numeroDocumento) {
+       public function modificarPasajeros($indice, $nuevoNombre, $nuevoApellido, $nuevoNumeroDocumento, $nuevoTelefono) {
         if($indice >= 0 && $indice < count($this->pasajerosViaje)) {
           $pasajero = [
-            'nombre' => $nombre,
-            'apellido' => $apellido,
-            'numDoc' => $numeroDocumento
+            'nombre' => $nuevoNombre,
+            'apellido' => $nuevoApellido,
+            'numDoc' => $nuevoNumeroDocumento,
+            'telefono' => $nuevoTelefono
           ];
           $this->pasajerosViaje[$indice] = $pasajero;
           return true;
