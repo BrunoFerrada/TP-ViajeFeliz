@@ -1,6 +1,6 @@
 <?php
 
-require_once('viajefeliz.php');
+require_once('viajefeliz_modif.php');
 
 $opcion = 0;
 while ($opcion != 4) {
@@ -34,7 +34,9 @@ while ($opcion != 4) {
                     $apellido =trim(fgets(STDIN));
                     echo "Ingrese el número de documento del pasajero " . $i . ": ";
                     $numeroDocumento = trim(fgets(STDIN));
-                    $viaje->agregarPasajero($nombre, $apellido, $numeroDocumento);
+                    echo "Ingrese el número de telefono del pasajero " . $i . ": ";
+                    $telefono = trim(fgets(STDIN));
+                    $viaje->agregarPasajero($nombre, $apellido, $numeroDocumento, $telefono);
             }
             echo "¡Información del viaje cargada exitosamente!\n\n";
             break;
@@ -84,7 +86,7 @@ while ($opcion != 4) {
                                 'apellido' => $apellido,
                                 'numero de documento' => $numeroDocumento
                             );
-                            $viaje->agregarPasajero($nombre, $apellido, $numeroDocumento);
+                            $viaje->agregarPasajero($nombre, $apellido, $numeroDocumento, $telefono);
                             echo "¡Pasajero agregado exitosamente!\n\n";
                             break;
                         case 5:

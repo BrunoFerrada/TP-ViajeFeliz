@@ -1,4 +1,7 @@
 <?php
+include_once 'pasajeros.php';
+include_once 'responsableV.php';
+
     class Viaje {
         private $codigo;
         private $destino;
@@ -46,12 +49,9 @@
             $this->pasajerosViaje = $pasajerosViaje;
         }
 
-       public function agregarPasajero($nombre, $apellido, $numeroDocumento) {
-        $this->pasajerosViaje[] = array(
-          "nombre" => $nombre,
-          "apellido" => $apellido,
-          "numeroDocumento" => $numeroDocumento
-        );
+       public function agregarPasajero($nombre, $apellido, $nroDocumento, $telefono) {
+        new Pasajero($nombre, $apellido, $nroDocumento, $telefono);
+        array_push($pasajerosViaje);
       }
 
        public function quitarPasajeros($numeroDocumento) {
