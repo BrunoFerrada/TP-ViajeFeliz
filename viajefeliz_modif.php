@@ -73,7 +73,7 @@ include_once 'responsableV.php';
       public function buscarPasajero($nroDocumento) {
         foreach ($this->pasajerosViaje as $pasajero) {
             if ($pasajero->getNroDocumento() === $nroDocumento) {
-                 return $pasajero;
+              return $pasajero;
             }
         }
         return null;
@@ -90,12 +90,12 @@ include_once 'responsableV.php';
 
        public function modificarPasajeros($nroDocumento, $nuevoNombre, $nuevoApellido, $nuevoNumeroDocumento, $nuevoTelefono) {
         $encontrado = false;
-        foreach ($this->pasajeros as $index => $pasajero) {
+        foreach ($this->pasajerosViaje as $index => $pasajero) {
           if ($pasajero->getNroDocumento() == $nroDocumento) {
             $pasajero->setNombre($nuevoNombre);
             $pasajero->setApellido($nuevoApellido);
-            $pasajero->settelefono($nuevoTelefono);
-            $pasajero->setnumDoc($nuevoNumeroDocumento);
+            $pasajero->setTelefono($nuevoTelefono);
+            $pasajero->setNroDocumento($nuevoNumeroDocumento);
             $encontrado = true;
             echo "Se ha modificado la información del pasajero con éxito.";
             break;

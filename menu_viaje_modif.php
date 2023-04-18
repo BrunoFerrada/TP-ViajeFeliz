@@ -113,8 +113,7 @@ while ($opcion != 4) {
                             $nuevoNumeroDocumentom = trim(fgets(STDIN));
                             echo "Ingrese el nuevo número de telefono: ";
                             $nuevoTelefono = trim(fgets(STDIN));
-                            $viaje->modificarPasajeros($indice, $nuevoNombre, $nuevoApellido, $nuevoNumeroDocumentom, $nuevoTelefono);
-                            echo "Pasajero modificado correctamente! \n";
+                            $viaje->modificarPasajeros($numeroDocumento, $nuevoNombre, $nuevoApellido, $nuevoNumeroDocumentom, $nuevoTelefono);
                             break;
                         case 6:
                             echo "Ingrese el número de documento del pasajero que quiere eliminar: ";
