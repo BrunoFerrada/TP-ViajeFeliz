@@ -54,14 +54,34 @@ include_once 'responsableV.php';
         $this->pasajerosViaje[] = $pasajero;
       }
 
-       public function quitarPasajeros($numeroDocumento) {
+      public function agregarPasajero2($pasajero) {
+        $nroDocumento = $pasajero->getNroDocumento();
+        if ($this->buscarPasajero($nroDocumento) !== null) {
+          $cadena = "El pasajero con número de documento" . $nroDocumento . "ya está registrado en el viaje." ;
+      } else {
+        $this->pasajerosViaje[] = $pasajero;
+        $cadena= "el pasajero fue agregado exitosamente";
+      }
+      return $cadena;
+      }
+
+      public function buscarPasajero($nroDocumento) {
+        foreach ($this->pasajerosViaje as $pasajero) {
+            if ($pasajero->getnumDoc() === $nroDocumento) {
+                 return $pasajero;
+            }
+        }
+        return null;
+      }
+
+      public function quitarPasajeros($nroDocumento) {
         foreach ($this->pasajerosViaje as $key => $value) {
-          if ($value['numeroDocumento'] == $numeroDocumento) {
-                unset($this->pasajerosViaje[$key]);
-                break;
+          if ($value['numeroDocumento'] == $nroDocumento) {
+            unset($this->pasajerosViaje[$key]);
+            break;
           }
         }
-       }
+      }
 
        public function modificarPasajeros($indice, $nuevoNombre, $nuevoApellido, $nuevoNumeroDocumento, $nuevoTelefono) {
         if($indice >= 0 && $indice < count($this->pasajerosViaje)) {
@@ -96,9 +116,8 @@ include_once 'responsableV.php';
         }
       }*/
 
-      public function __toString()
-      {
-        return "Codigo de viaje: " . $this->codigo . "\n" . "Destino del viaje: " . $this->destino . "\n" . "Cantidad máxima de pasajeros: " . $this->cantMaxPasajeros . "\n";
+      public function __toString() {
+        return "Codigo de viaje: " . $this->codigo . "\n" . "Destino del viaje: " . $this->destino . "\n" . "Cantidad máxima de pasajeros: " . $this->cantMaxPasajeros . "\n\n";
       }
     
       public function mostrarPasajeros() {

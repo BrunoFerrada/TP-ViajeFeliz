@@ -46,6 +46,6 @@ class RespondableV {
     }
 
     public function __toString() {
-        echo "Número de empleado: " . $this->nroEmpleado . "\n" . "Número de licencia: " . $this->nroLicencia . "\n" . "Nombre: " . $this->nombre . "\n" . "Apellido: " . $this->apellido . "\n\n"; 
+        return "Número de empleado: " . $this->nroEmpleado . "\n" . "Número de licencia: " . $this->nroLicencia . "\n" . "Nombre: " . $this->nombre . "\n" . "Apellido: " . $this->apellido . "\n\n"; 
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
-require_once('viajefeliz_modif.php');
+include_once('viajefeliz_modif.php');
+include_once('responsableV.php');
 
 $opcion = 0;
 while ($opcion != 4) {
@@ -14,6 +15,16 @@ while ($opcion != 4) {
 
     switch ($opcion) {
         case 1:
+            echo "Ingrese el número del empleado: ";
+            $nroEmpleado = trim(fgets(STDIN));
+            echo "Ingrese el número de la licnecia: ";
+            $nroLicencia = trim(fgets(STDIN));
+            echo "Ingrese el nombre del responsable: ";
+            $nombreR = trim(fgets(STDIN));
+            echo "ingrese el apellido del responsable: ";
+            $apellidoR = trim(fgets(STDIN));
+            $responsableViaje = new RespondableV($nroEmpleado, $nroLicencia, $nombreR, $apellidoR);
+
             echo "Ingrese el código del viaje: ";
             $codigo = trim(fgets(STDIN));
             echo "Ingrese el destino del viaje: ";
@@ -22,7 +33,7 @@ while ($opcion != 4) {
             $cantMaxPasajeros = trim(fgets(STDIN));
             echo "Ingrese la cantidad de pasajeros: ";
             $cantPasajeros = trim(fgets(STDIN));
-            $viaje = new Viaje($codigo, $destino, $cantMaxPasajeros, $cantPasajeros);
+            $viaje = new Viaje($codigo, $destino, $cantMaxPasajeros, $cantPasajeros, $responsableViaje);
             if ($cantPasajeros > $cantMaxPasajeros) {
                 echo "Los pasajeros superan la capacidad máxima del viaje.\n\n";
                 break;
@@ -86,7 +97,7 @@ while ($opcion != 4) {
                                 'apellido' => $apellido,
                                 'numero de documento' => $numeroDocumento
                             );
-                            $viaje->agregarPasajero($nombre, $apellido, $numeroDocumento, $telefono);
+                            $viaje->agregarPasajero2($pasajeros);
                             echo "¡Pasajero agregado exitosamente!\n\n";
                             break;
                         case 5:
@@ -127,6 +138,7 @@ while ($opcion != 4) {
         case 3:
             if(isset($viaje)) {
                 echo "---VIAJE--- \n";
+                echo $responsableViaje . "\n";
                 echo $viaje . "\n";
                 $verPasajeros = $viaje->mostrarPasajeros();
                 echo $verPasajeros;
