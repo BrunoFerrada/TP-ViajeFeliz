@@ -103,8 +103,8 @@ while ($opcion != 4) {
                             echo $cadena;
                             break;
                         case 5:
-                            echo "Ingrese el indice del pasajero que desee modificar: ";
-                            $indice = trim(fgets(STDIN));
+                            echo "Ingrese el número de documento del pasajero que desee modificar: ";
+                            $numeroDocumento = trim(fgets(STDIN));
                             echo "Ingrese el nuevo nombre: ";
                             $nuevoNombre = trim(fgets(STDIN));
                             echo "Ingrese el nuevo apellido: ";

@@ -88,18 +88,21 @@ include_once 'responsableV.php';
         }
       }
 
-       public function modificarPasajeros($indice, $nuevoNombre, $nuevoApellido, $nuevoNumeroDocumento, $nuevoTelefono) {
-        if($indice >= 0 && $indice < count($this->pasajerosViaje)) {
-          $pasajero = [
-            'nombre' => $nuevoNombre,
-            'apellido' => $nuevoApellido,
-            'numDoc' => $nuevoNumeroDocumento,
-            'telefono' => $nuevoTelefono
-          ];
-          $this->pasajerosViaje[$indice] = $pasajero;
-          return true;
-        } else {
-          return false;
+       public function modificarPasajeros($nroDocumento, $nuevoNombre, $nuevoApellido, $nuevoNumeroDocumento, $nuevoTelefono) {
+        $encontrado = false;
+        foreach ($this->pasajeros as $index => $pasajero) {
+          if ($pasajero->getNroDocumento() == $nroDocumento) {
+            $pasajero->setNombre($nuevoNombre);
+            $pasajero->setApellido($nuevoApellido);
+            $pasajero->settelefono($nuevoTelefono);
+            $pasajero->setnumDoc($nuevoNumeroDocumento);
+            $encontrado = true;
+            echo "Se ha modificado la información del pasajero con éxito.";
+            break;
+          }
+        }
+        if (!$encontrado) {
+          echo "No se encontró el pasajero que desea modificar.\n";
         }
       }
 
