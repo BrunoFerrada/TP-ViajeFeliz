@@ -8,13 +8,18 @@ include_once 'responsableV.php';
         private $cantMaxPasajeros;
         private $cantPasajeros;
         private $pasajerosViaje;
+        private $pasajero;
 
-        public function __construct($codigo, $destino, $cantMaxPasajeros, $cantPasajeros) {
+        public function __construct($codigo, $destino, $cantMaxPasajeros, $cantPasajeros, $pasajero) {
             $this->codigo = $codigo;
             $this->destino = $destino;
             $this->cantMaxPasajeros = $cantMaxPasajeros;
             $this->cantPasajeros = $cantPasajeros;
             $this->pasajerosViaje = array();
+        }
+
+        public function getPasajero() {
+          return $this->pasajero;
         }
 
         public function obtenerCodigo() {
@@ -49,15 +54,15 @@ include_once 'responsableV.php';
             $this->pasajerosViaje = $pasajerosViaje;
         }
 
-       public function agregarPasajero($nombre, $apellido, $nroDocumento, $telefono) {
+       /*public function agregarPasajero($nombre, $apellido, $nroDocumento, $telefono) {
         $pasajero = new Pasajero($nombre, $apellido, $nroDocumento, $telefono);
         $this->pasajerosViaje[] = $pasajero;
-      }
-
+      }*/
+      
       public function agregarPasajero2($pasajero) {
         $nroDocumento = $pasajero->getNroDocumento();
         if ($this->buscarPasajero($nroDocumento) !== null) {
-          $cadena = "El pasajero con número de documento" . $nroDocumento . "ya está registrado en el viaje." ;
+          $cadena = "El pasajero con número de documento " . $nroDocumento . " ya está registrado en el viaje.\n" ;
       } else {
         $this->pasajerosViaje[] = $pasajero;
         $cadena= "el pasajero fue agregado exitosamente";
@@ -67,7 +72,7 @@ include_once 'responsableV.php';
 
       public function buscarPasajero($nroDocumento) {
         foreach ($this->pasajerosViaje as $pasajero) {
-            if ($pasajero->getnumDoc() === $nroDocumento) {
+            if ($pasajero->getNroDocumento() === $nroDocumento) {
                  return $pasajero;
             }
         }

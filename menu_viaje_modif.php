@@ -2,6 +2,7 @@
 
 include_once('viajefeliz_modif.php');
 include_once('responsableV.php');
+$pasajero = null;
 
 $opcion = 0;
 while ($opcion != 4) {
@@ -33,7 +34,7 @@ while ($opcion != 4) {
             $cantMaxPasajeros = trim(fgets(STDIN));
             echo "Ingrese la cantidad de pasajeros: ";
             $cantPasajeros = trim(fgets(STDIN));
-            $viaje = new Viaje($codigo, $destino, $cantMaxPasajeros, $cantPasajeros, $responsableViaje);
+            $viaje = new Viaje($codigo, $destino, $cantMaxPasajeros, $cantPasajeros, $responsableViaje, $pasajero);
             if ($cantPasajeros > $cantMaxPasajeros) {
                 echo "Los pasajeros superan la capacidad máxima del viaje.\n\n";
                 break;
@@ -47,7 +48,8 @@ while ($opcion != 4) {
                     $numeroDocumento = trim(fgets(STDIN));
                     echo "Ingrese el número de telefono del pasajero " . $i . ": ";
                     $telefono = trim(fgets(STDIN));
-                    $viaje->agregarPasajero($nombre, $apellido, $numeroDocumento, $telefono);
+                    $pasajero = new Pasajero($nombre, $apellido, $numeroDocumento, $telefono);
+                    $viaje->agregarPasajero2($pasajero);
             }
             echo "¡Información del viaje cargada exitosamente!\n\n";
             break;
@@ -97,8 +99,8 @@ while ($opcion != 4) {
                                 'apellido' => $apellido,
                                 'numero de documento' => $numeroDocumento
                             );
-                            $viaje->agregarPasajero2($pasajeros);
-                            echo "¡Pasajero agregado exitosamente!\n\n";
+                            $cadena = $viaje->agregarPasajero2($pasajero);
+                            echo $cadena;
                             break;
                         case 5:
                             echo "Ingrese el indice del pasajero que desee modificar: ";
