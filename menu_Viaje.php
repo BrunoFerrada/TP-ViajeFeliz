@@ -1,9 +1,9 @@
 <?php
-include_once("pasajero.php");
-include_once ("viajeFeliz.php");
+include_once("pasajeros.php");
+include_once ("viajefeliz_modif.php");
 include_once ("responsableV.php");
 include_once ("pasajerosVip.php");
-include_once ("pasajeroEspecial.php");
+include_once ("pasajeroEsp.php");
 
 /**
  * PIDE LOS DATOS DE UN PASAJERO VIP Y LO CONVIERTE EN OBJETO PARA PasajeroVip
