@@ -5,12 +5,16 @@ class Pasajero {
     private $apellido;
     private $nroDocumento;
     private $telefono;
+    private $numAsiento;
+    private $numTicket;
 
-    public function __construct($nombre, $apellido, $nroDocumento, $telefono) {
+    public function __construct($nombre, $apellido, $nroDocumento, $telefono, $numAsiento, $numTicket) {
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->nroDocumento = $nroDocumento;
         $this->telefono = $telefono;
+        $this->numAsiento = $numAsiento;
+        $this->numTicket = $numTicket;
     }
 
     public function getNombre() {
@@ -43,6 +47,22 @@ class Pasajero {
 
     public function setTelefono($telefono) {
         $this->telefono = $telefono;
+    }
+    
+    public function getNumAsiento() {
+        return $this->numAsiento;
+    }
+
+    public function setNumAsiento($numAsiento) {
+        $this->numAsiento = $numAsiento;
+    }
+
+    public function getNumTicket() {
+        return $this->numTicket;
+    }
+
+    public function setNumTicket($numTicket) {
+        $this->numTicket = $numTicket;
     }
 
     /*public function __toString() {

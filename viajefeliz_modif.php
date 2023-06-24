@@ -9,13 +9,17 @@ include_once 'responsableV.php';
         private $cantPasajeros;
         private $pasajerosViaje;
         private $pasajero;
+        private $costoViaje;
+        private $totalCostoAbonado;
 
-        public function __construct($codigo, $destino, $cantMaxPasajeros, $cantPasajeros, $pasajero) {
+        public function __construct($codigo, $destino, $cantMaxPasajeros, $cantPasajeros, $pasajero, $costoViaje, $totalCostoAbonado) {
             $this->codigo = $codigo;
             $this->destino = $destino;
             $this->cantMaxPasajeros = $cantMaxPasajeros;
             $this->cantPasajeros = $cantPasajeros;
             $this->pasajerosViaje = array();
+            $this->costoViaje = $costoViaje;
+            $this->totalCostoAbonado = $totalCostoAbonado;
         }
 
         public function getPasajero() {
@@ -24,6 +28,14 @@ include_once 'responsableV.php';
 
         public function obtenerCodigo() {
             return $this->codigo;
+        }
+
+        public function getCantPasajeros() {
+          return $this->cantPasajeros;
+        }
+
+        public function setCantPasajeros($cantPasajeros) {
+          $this->cantPasajeros = $cantPasajeros;
         }
 
         public function ponerCodigo($codigo) {
@@ -52,6 +64,22 @@ include_once 'responsableV.php';
 
         public function ponerPasajerosViaje($pasajerosViaje) {
             $this->pasajerosViaje = $pasajerosViaje;
+        }
+
+        public function getCostoViaje() {
+          return $this->costoViaje;
+        }
+
+        public function setCostoViaje($costoViaje) {
+          $this->costoViaje = $costoViaje;
+        }
+
+        public function getTotalCostoAbonado() {
+          return $this->totalCostoAbonado;
+        }
+
+        public function setTotalCostoAbonado($totalCostoAbonado) {
+          $this->totalCostoAbonado = $totalCostoAbonado;
         }
 
        /*public function agregarPasajero($nombre, $apellido, $nroDocumento, $telefono) {
@@ -123,6 +151,32 @@ include_once 'responsableV.php';
           }
         }
       }*/
+
+      public function hayPasajesDisponibles() {
+        $cantPasajeros = $this->getCantPasajeros();
+        $cantMaxPasajeros = $this->obtenerCantMaxPasajeros();
+        if ($cantPasajeros < $cantMaxPasajeros) {
+          $vender = true;
+        } else {
+          $vender = false;
+        }
+        return $vender;
+      }
+      
+      /**completar*/
+      public function darPorcentajeIncremento() {
+        
+      }
+
+      /**revisar y corregir en caso de error*/
+      public function venderPasaje($objPasajero) {
+        $lugarDisp = $this->hayPasajesDisponibles();
+        if ($lugarDisp) {
+          $this->agregarPasajero2($objPasajero);
+        }
+        $costoPorAbonar = $this->setTotalCostoAbonado($this->costoViaje);
+        return $costoPorAbonar;
+      }
 
       public function __toString() {
         return "Codigo de viaje: " . $this->codigo . "\n" . "Destino del viaje: " . $this->destino . "\n" . "Cantidad máxima de pasajeros: " . $this->cantMaxPasajeros . "\n\n";
