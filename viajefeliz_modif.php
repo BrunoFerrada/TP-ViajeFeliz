@@ -46,73 +46,59 @@ class Viaje {
   }
 
   public function getResponsableV(){
-
     return $this->responsableV;
 
   }
 
   public function setResponsableV($responsableV){
-
     $this->responsableV = $responsableV;
 
   }
 
   public function getCodigoViaje() {
-
     return $this->codigoViaje;
 
   }
 
   public function setCodigoViaje($codigoViaje) {
-
     $this->codigoViaje = $codigoViaje;
 
   }
 
   public function getDestino() {
-
     return $this->destino;
 
   }
 
   public function setDestino($destino) {
-
     $this->destino = $destino;
 
   }
 
   public function getCantMaxPasajeros() {
-
     return $this->maxPasajeros;
 
   }
 
   public function setCantMaxPasajeros($maxPasajeros) {
-
     $this->maxPasajeros = $maxPasajeros;
 
   }
 
   public function getColPasajeros(){
-
     return $this->colPasajeros;
 
   }
 
   public function setColPasajeros ($colPasajeros){
-
     $this->colPasajeros = $colPasajeros;
 
   }
   
   public function buscarPasajero($numeroDocumento) {
-
     foreach ($this->colPasajeros as $pasajero) {
-
         if ($pasajero->getNroDoc() === $numeroDocumento) {
-
             return $pasajero;
-
         }
     }
     return null;
@@ -208,17 +194,11 @@ public function modificarPasajeroEsp($docModif, $nuevoNombre, $nuevoApellido, $n
 }
 
   public function hayPasajesDisponibles(){
-
     $estado = false;
-
     $cantPasajViaje = $this->getCantPasajeros();
-
     $cantMax = $this->getCantMaxPasajeros();
-
     if($cantPasajViaje < $cantMax + 1){
-
       $estado = true;
-
     }
     return $estado;
   }
@@ -247,13 +227,9 @@ public function modificarPasajeroEsp($docModif, $nuevoNombre, $nuevoApellido, $n
   {
 
     return "Codigo de viaje: " . $this->getCodigoViaje() . 
-
     "\n" . "Destino del viaje: " . $this->getDestino() . 
-
     "\n" . "Cantidad máxima de pasajeros: " . $this->getCantMaxPasajeros() .
-    
     "\n" . "Costo del viaje: " . $this->getCostoViaje() .
-    
     "\n" . "Costo Total: " . $this->getSumaCostos() .
 
     $this->responsableV;
