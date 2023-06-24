@@ -5,12 +5,16 @@ class Pasajero {
     private $apellido;
     private $nroDocumento;
     private $telefono;
+    private $numAsiento;
+    private $numTicket;
 
-    public function __construct($nombre, $apellido, $nroDocumento, $telefono) {
+    public function __construct($nombre, $apellido, $nroDocumento, $telefono, $numAsiento, $numTicket) {
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->nroDocumento = $nroDocumento;
         $this->telefono = $telefono;
+        $this->numAsiento = $numAsiento;
+        $this->numTicket = $numTicket;
     }
 
     public function getNombre() {
@@ -44,8 +48,35 @@ class Pasajero {
     public function setTelefono($telefono) {
         $this->telefono = $telefono;
     }
+    
+    public function getNumAsiento() {
+        return $this->numAsiento;
+    }
 
-    /*public function __toString() {
-        echo "Nombre: " . $this->nombre . "\n" . "Apellido: " . $this->apellido . "\n" . "Número de documento: " . $this->nroDocumento . "\n" . "Telefono: " . $this->telefono . "\n\n";
-    }*/
+    public function setNumAsiento($numAsiento) {
+        $this->numAsiento = $numAsiento;
+    }
+
+    public function getNumTicket() {
+        return $this->numTicket;
+    }
+
+    public function setNumTicket($numTicket) {
+        $this->numTicket = $numTicket;
+    }
+
+    public function darPorcentajeIncremento(){
+        $porcentaje = 10; 
+        return $porcentaje;
+    }
+
+    public function __toString() {
+        return "Nombre: " . $this->getNombre() . "\n" . 
+               "Apellido: " . $this->getApellido() . "\n" . 
+               "Número de documento: " . $this->getNroDocumento() . "\n" . 
+               "Telefono: " . $this->getTelefono() . "\n" . 
+               "Número de asiento: " . $this->getNumAsiento() . "\n" . 
+               "Número de ticket: " . $this->getNumTicket() . "\n" . 
+               "Porcentaje de incremento: " . $this->darPorcentajeIncremento() . "\n\n";
+    }
 }

@@ -33,4 +33,8 @@ class pasajeroVip extends pasajero {
                "cantidad de millas: " . $this->getCantMillas() . "\n" . 
                $resultadoPadre;
     }
+
+    public function darPorcentajeIncremento() {
+        
+    }
 }
