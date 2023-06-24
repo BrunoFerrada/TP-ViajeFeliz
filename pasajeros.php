@@ -65,7 +65,18 @@ class Pasajero {
         $this->numTicket = $numTicket;
     }
 
-    /*public function __toString() {
-        echo "Nombre: " . $this->nombre . "\n" . "Apellido: " . $this->apellido . "\n" . "Número de documento: " . $this->nroDocumento . "\n" . "Telefono: " . $this->telefono . "\n\n";
-    }*/
+    public function darPorcentajeIncremento(){
+        $porcentaje = 10; 
+        return $porcentaje;
+    }
+
+    public function __toString() {
+        return "Nombre: " . $this->getNombre() . "\n" . 
+               "Apellido: " . $this->getApellido() . "\n" . 
+               "Número de documento: " . $this->getNroDocumento() . "\n" . 
+               "Telefono: " . $this->getTelefono() . "\n" . 
+               "Número de asiento: " . $this->getNumAsiento() . "\n" . 
+               "Número de ticket: " . $this->getNumTicket() . "\n" . 
+               "Porcentaje de incremento: " . $this->darPorcentajeIncremento() . "\n\n";
+    }
 }

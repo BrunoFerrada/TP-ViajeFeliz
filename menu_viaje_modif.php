@@ -1,6 +1,6 @@
 <?php
 
-include_once('viajefeliz_modif.php');
+/*include_once('viajefeliz_modif.php');
 include_once('responsableV.php');
 $pasajero = null;
 
@@ -155,4 +155,4 @@ while ($opcion != 4) {
             break;
         break;
     }
-}
+}*/
